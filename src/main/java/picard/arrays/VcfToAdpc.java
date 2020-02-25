@@ -99,8 +99,9 @@ public class VcfToAdpc extends CommandLineProgram {
     @Override
     protected int doWork() {
         final List<File> inputs = IOUtil.unrollFiles(VCF, IOUtil.VCF_EXTENSIONS);
-        IOUtil.assertFilesAreWritable(inputs);
+        IOUtil.assertFilesAreReadable(inputs);
         IOUtil.assertFileIsWritable(SAMPLES_FILE);
+        IOUtil.assertFileIsWritable(NUM_MARKERS_FILE);
         IOUtil.assertFileIsWritable(OUTPUT);
         final List<String> sampleNames = new ArrayList<>();
 
